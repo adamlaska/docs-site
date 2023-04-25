@@ -11,13 +11,17 @@ Here’s what you’d need to do to fix a bug in a contract you cannot upgrade:
 
 There are several approaches that allow us to make some changes to smart contracts.
 
-**Separate logic and data**
+#### Separate logic and data
 
 By using this approach, data will be read from a designated data contract directly. This is a rather common approach that is also used outside of Solidity. One of the main disadvantages of this approach is that you cannot change the interface of contracts external to the entire system, and you cannot add or remove functions.
 
-**Delegatecall Proxy**
+####  Proxy Contracts 
 
-`delegatecall` opcode was implemented in [EIP-7](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-7.md). It is possible to delegate execution to other contract, but execution context stays the same. As with delegatecall, the msg.sender will remain that of the caller of the proxy contract. One of the main disadvantages of this approach is that contract code of the proxy will not reflect the state that it stores.
+A proxy contract works in the way that all message calls to this contract are redirected to the latest deployed contract logic. To upgrade a contract, one can simply deploy the new version of the contract and update the reference to the new contract address in the proxy contract using the `delegatecall` opcode.
+
+#####  Delegatecall Opcode:
+
+`delegatecall` opcode was implemented in [EIP-7](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-7.md). It is possible to delegate execution to other contract, but execution context stays the same. As with `delegatecall`, the `msg.sender` will remain that of the caller of the proxy contract. One of the main disadvantages of this approach is that contract code of the proxy will not reflect the state that it stores.
 
 ## Writing Upgradeable BEP20 Contracts
 
@@ -38,7 +42,7 @@ pragma solidity ^0.6.0;
 
 ```
 OpenZeppelin Upgrades provides an Initializable base contract that has an initializer modifier to prevent a contract from being *initialized* multiple times:
-https://github.com/binance-chain/canonical-upgradeable-bep20/blob/47ed7a710e6e86bdc85f2118bf63fc892e3b7716/contracts/BEP20TokenImplementation.sol#L37
+https://github.com/bnb-chain/canonical-upgradeable-bep20/blob/47ed7a710e6e86bdc85f2118bf63fc892e3b7716/contracts/BEP20TokenImplementation.sol#L37
 
 ```javascript
  /**
@@ -55,7 +59,7 @@ function initialize(string memory name, string memory symbol, uint8 decimals, ui
 
 ```
 BEP20 contract initializes the token’s name, symbol, and decimals in its constructor. You should not use these contracts in your BEP20 Upgrades contract. , make sure to use the `upgradableBEP20implementation` that has been modified to use initializers instead of constructors.
-https://github.com/binance-chain/bsc-genesis-contract/blob/42922472b43397fbca9d0c84c7f72fbfaf39efc3/contracts/bep20_template/BEP20Token.template#L351
+https://github.com/bnb-chain/bsc-genesis-contract/blob/42922472b43397fbca9d0c84c7f72fbfaf39efc3/contracts/bep20_template/BEP20Token.template#L351
 
 ```javascript
 constructor() public {
@@ -97,7 +101,7 @@ npx truffle init
 ### Create upgradeable contract
 This example token has a fixed supply that is minted to the deployer of the contract.
 
-https://github.com/binance-chain/canonical-upgradeable-bep20/blob/master/contracts/BEP20TokenImplementation.sol
+https://github.com/bnb-chain/canonical-upgradeable-bep20/blob/master/contracts/BEP20TokenImplementation.sol
 
 ```javascript
 const BEP20TokenImplementation = artifacts.require("BEP20TokenImplementation");const BEP20TokenFactory = artifacts.require("BEP20TokenFactory");

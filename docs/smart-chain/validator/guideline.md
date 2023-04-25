@@ -17,14 +17,14 @@
 
 **Install BSC Fullnode**
 
-you can download the pre-build binaries from [release page](https://github.com/binance-chain/bsc/releases/latest) or follow the instructions [here to set up a full node](../developer/fullnode.md).
+you can download the pre-build binaries from [release page](https://github.com/bnb-chain/bsc/releases/latest) or follow the instructions [here to set up a full node](../developer/fullnode.md).
 
 **Download the config files**
 
 Download `genesis.json` and `config.toml` by:
 ```bash
 ## testnet
-wget --no-check-certificate  $(curl -s https://api.github.com/repos/binance-chain/bsc/releases/latest |grep browser_ |grep testnet |cut -d\" -f4)
+wget --no-check-certificate  $(curl -s https://api.github.com/repos/bnb-chain/bsc/releases/latest |grep browser_ |grep testnet |cut -d\" -f4)
 unzip testnet.zip
 ```
 
@@ -52,7 +52,7 @@ geth --config ./config.toml --datadir ./node --syncmode snap -unlock {your-valid
 
 You can get testnet BNB from <https://testnet.binance.org/faucet-smart>, but the BNB is on Binance Smart Chain.
 
-Download `tbnbcli `from [GitHub](https://github.com/binance-chain/node-binary/tree/master/cli/testnet/0.8.1). Use `tbnbcli` to create an account or recover an account.
+Download `tbnbcli `from [GitHub](https://github.com/bnb-chain/node-binary/tree/master/cli/testnet/0.8.1). Use `tbnbcli` to create an account or recover an account.
 
 You can follow the [guide](https://binance-wallet.gitbook.io/binance-chain-extension-wallet/best-practice/transfer-testnet-bnb-from-bsc-to-bc) to transfer BNB from BSC testnet to BC testnet.
 
@@ -93,7 +93,7 @@ Check your validator's status at this [page](https://testnet-staking.binance.org
 
 ### 1. Install BSC Fullnode
 
-you can download the pre-build binaries from [release page](https://github.com/binance-chain/bsc/releases/latest) or follow the instructions [here to set up a full node](../developer/fullnode.md).
+you can download the pre-build binaries from [release page](https://github.com/bnb-chain/bsc/releases/latest) or follow the instructions [here to set up a full node](../developer/fullnode.md).
 
 **Download the config files**
 
@@ -101,7 +101,7 @@ Download `genesis.json` and `config.toml` by:
 
 ```bash
 ## mainet
-wget --no-check-certificate  $(curl -s https://api.github.com/repos/binance-chain/bsc/releases/latest |grep browser_ |grep mainnet |cut -d\" -f4)
+wget --no-check-certificate  $(curl -s https://api.github.com/repos/bnb-chain/bsc/releases/latest |grep browser_ |grep mainnet |cut -d\" -f4)
 unzip mainnet.zip
 ```
 
@@ -177,7 +177,7 @@ If you are connecting to an existing network for which you have a data backup (f
 You can use `bnbcli` binary to sen `create-validator` transaction, thus you can declare your candidacy.
 
 
-* Download `bnbcli` from [GitHub](https://github.com/binance-chain/node-binary/tree/master/cli/prod/0.8.2)
+* Download `bnbcli` from [GitHub](https://github.com/bnb-chain/node-binary/tree/master/cli/prod/0.8.2)
 
 Use `bnbcli` to create an account or recover an account, make sure the account get more than 10000 BNB.
 
@@ -226,13 +226,13 @@ docker run -it -d -p 9090:9090 \
 
 ### 2. Update validator prodile
 
-You can submit a PullRequest to this repository to update your information: <https://github.com/binance-chain/validator-directory>
+You can submit a PullRequest to this repository to update your information: <https://github.com/bnb-chain/validator-directory>
 Reference: <https://grafana.com/grafana/dashboards/6976>
 
 
 ### 3. Publish Validator Information
 
-Please submit a Pull Request to this repo <https://github.com/binance-chain/validator-directory>
+Please submit a Pull Request to this repo <https://github.com/bnb-chain/validator-directory>
 
 This repository is a place for validator candidates to give potential delegators a brief introduction about your team and infrastructure, and present your ecosystem contributions.
 

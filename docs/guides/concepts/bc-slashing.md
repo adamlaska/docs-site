@@ -44,7 +44,7 @@ When your validator is `unjailed` on binance chain, it must wait for the next UT
 ### Transaction Validation
 * validator address must not be empty
 * side chain id exists
-* self-delegation of the validator exists and the tokens of it must be greater than the min-self-delegation setting by 20000BNB
+* self-delegation of the validator exists and the tokens of it must be greater than the min-self-delegation setting by *10000BNB*
 * the validator is in ‘jailed’ now
 * already passed the duration set when ‘jailed’ happened
 
@@ -61,7 +61,7 @@ Submit Byzaitine Behavior Evidence of A Smart Chain Validator | 10 |
 
 ### Download Binary
 
-Please download `tbnbcli` binary from [here](https://github.com/binance-chain/smart-chain-binary/tree/master/bc/cli)
+Please download `tbnbcli` binary from [here](https://github.com/bnb-chain/smart-chain-binary/tree/master/bc/cli)
 
 ### Submit BSC evidence
 
